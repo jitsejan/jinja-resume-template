@@ -48,6 +48,18 @@ occupation: Resume builder
 The following Python script will load the YAML and the HTML and save the populated template to `output_text`.
 
 ```python
+def _get_data():
+    with open(DATA_FILE, 'r') as stream:
+        try:
+            return yaml.safe_load(stream)
+        except yaml.YAMLError as exc:
+            print(exc)
+
+def _get_template():
+    template_loader = jinja2.FileSystemLoader(searchpath="templates")
+    template_env = jinja2.Environment(loader=template_loader)
+    return template_env.get_template(TEMPLATE_FILE)
+
 data = _get_data() # Loads YAML file
 template = _get_template() # Loads HTML file
 output_text = template.render(**data) # Fills in the variables in the HTML file
