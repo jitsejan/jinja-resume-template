@@ -55,12 +55,18 @@ output_text = template.render(**data) # Fills in the variables in the HTML file
 
 ### Jinja for-loop
 
-
+```yaml
+languages:
+  English:
+    description: Full professional proficiency
+  Italian:
+    description: Elementary proficiency
+```
 
 ```html
 <ul>
 {% for dict_item in languages %}
-    <li>{{dict_item}}</li>  
+    <li>{{dict_item}}: {{ languages[dict_item]['description'] }}</li>  
 {% endfor %}  
 </ul>
 ```
