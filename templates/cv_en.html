@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{title}} - {{ personal.get('name').get('first') }} {{ personal.get('name').get('last') }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="static/cv_en.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <header class="col-12">
+                <h1>{{ personal.get('name').get('first') }} {{ personal.get('name').get('last') }}</h1>
+                <h2 class="">{{ occupation }}</h2>
+                <h3 class="cv">{{ title }}</h3>
+            </header>
+        </div>
+        <div class="row">
+            <main class="col-9">
+                <section>
+                    <div class="row">
+                        <div class="col-2 dash"></div>
+                        <div class="col-10"><h2 class="section">Employment history</h2></div>
+                    </div>
+                    {% for dict_item in work %}
+                    <div class="row workitem">
+                        <div class="col-2 workdate">
+                            {{ dict_item['start'] }} - <br/>{{ dict_item['end'] }}
+                        </div>
+                        <div class="col-10">
+                            <h5><b>{{ dict_item['title']}}</b><div class="where">{{ dict_item['employer']}}, {{ dict_item['location']}}</div></h5>
+                            {% for elem in dict_item['tasks'] %}
+                                {{ elem }} <br/>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </section>
+                <section>
+                    <div class="row">
+                        <div class="col-2 dash"></div>
+                        <div class="col-10"><h2 class="section">Education</h2></div>
+                    </div>
+                    {% for dict_item in education %}
+                    <div class="row workitem">
+                        <div class="col-2 workdate">
+                            {{ dict_item['start'] }} - {{ dict_item['end'] }}
+                        </div>
+                        <div class="col-10">
+                            <b>{{ dict_item['degree']}}</b> @ {{ dict_item['location']}}, {{ dict_item['country']}} - {{ dict_item['finished']}}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </section>
+            </main>
+            <aside class="col-3">
+                <hr/>
+                <section>
+                    <div class="row">
+                        <div class="offset-1 col-11">
+                            {{ personal.get('address').get('streetOne') }} <br/>
+                            {{ personal.get('address').get('streetTwo') }} <br/>
+                            {{ personal.get('address').get('postcode') }} {{ personal.get('address').get('city') }} <br/>
+                            {{ personal.get('address').get('country') }} <br/>
+                            {{ personal.get('phone').get('mobile') }} <br/>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h4>Experience</h4>
+                    {% for dict_item in experience %}
+                    <div class="row">
+                        <div class="offset-1 col-5 skill">
+                            {{dict_item}}
+                        </div>  
+                        <div class="col-5">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="offset-1 col-10 skill-detail">{{ " / ".join(experience[dict_item]['details']) }}</div>
+                    </div>
+                    {% endfor %}    
+                </section>
+                <section>
+                        <h4>Languages</h4>
+                        {% for dict_item in languages %}
+                        <div class="row">
+                            <div class="offset-1 col-5 skill">
+                                {{dict_item}}
+                            </div>  
+                            <div class="col-5">
+                            </div>  
+                        </div>
+                        <div class="row">
+                            <div class="offset-1 col-10 skill-detail">{{ languages[dict_item]['description'] }}</div>
+                        </div>
+                        {% endfor %}    
+                    </section>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>

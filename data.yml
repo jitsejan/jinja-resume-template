@@ -1,0 +1,65 @@
+education:
+- country: Country X
+  degree: Master of Science in Electrical Engineering
+  end: 2007
+  location: University
+  start: 2006
+- country: Country Y
+  degree: Bachelor of Science in Electrical Engineering
+  end: 2006
+  location: University
+  start: 2005
+experience:
+  AWS:
+    details:
+    - Lambda
+    - S3
+  Azure:
+    details:
+    - Functions
+    - Blob Storage
+  Big Data:
+    details:
+    - Spark
+    - SQL
+  Python:
+    details:
+    - Pandas
+    - Jupyter
+languages:
+  English:
+    description: Full professional proficiency
+  Italian:
+    description: Elementary proficiency
+    rate: 3
+occupation: Resume builder
+personal:
+  address:
+    city: City
+    country: Country Z
+    postcode: 90210
+    streetOne: Main Street
+    streetTwo: 13 Apartment Building
+  name: 
+    first: Pete
+    last: Peterson
+  phone:
+    mobile: +12 345 678 90
+title: Curriculum Vitae
+work:
+- employer: John Doe
+  end: current
+  location: Country Z
+  start: Nov 2019
+  tasks:
+  - Design
+  - Implement
+  title: Implementer
+- employer: Jane Doe
+  end: Oct 2019
+  location: Country T
+  start: Oct 2017
+  tasks:
+  - Test
+  - Monitor
+  title: Tester
