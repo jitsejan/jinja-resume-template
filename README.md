@@ -29,9 +29,9 @@ $ python run.py
 Jinja helps to create structures like this:
 
 ```html
-<header class="col-12">
-    <h1>{{ personal.get('name').get('first') }} {{ personal.get('name').get('last') }}</h1>
-    <h2>{{ occupation }}</h2>
+<header>
+  <h1>{{ personal.get('name').get('first') }} {{ personal.get('name').get('last') }}</h1>
+  <h2>{{ occupation }}</h2>
 </header>
 ```
 
@@ -45,9 +45,22 @@ personal:
 occupation: Resume builder
 ```
 
+The following Python script will load the YAML and the HTML and save the populated template to `output_text`.
+
 ```python
 data = _get_data() # Loads YAML file
 template = _get_template() # Loads HTML file
 output_text = template.render(**data) # Fills in the variables in the HTML file
 ```
 
+### Jinja for-loop
+
+
+
+```html
+<ul>
+{% for dict_item in languages %}
+    <li>{{dict_item}}</li>  
+{% endfor %}  
+</ul>
+```
