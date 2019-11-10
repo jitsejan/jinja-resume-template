@@ -8,7 +8,6 @@ verify_ssl = true
 [packages]
 flask = "*"
 pdfkit = "*"
-weasyprint = "*"
 pyyaml = "*"
 
 [requires]

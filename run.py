@@ -1,13 +1,13 @@
-from flask import Flask, render_template
+from flask import render_template
 import json
 import yaml
 import pdfkit
 import jinja2
 
 TEMPLATE_FILE = "cv_en.html"
-DATA_FILE = "data.yml"
-OUTPUT_HTML = "output.html"
-OUTPUT_PATH = "output.pdf"
+DATA_FILE = "data/data.yml"
+OUTPUT_HTML = "output/output.html"
+OUTPUT_PATH = "output/output.pdf"
 
 def _get_data():
     with open(DATA_FILE, 'r') as stream:
